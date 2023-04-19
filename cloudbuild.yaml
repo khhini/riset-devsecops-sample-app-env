@@ -29,6 +29,8 @@ steps:
   - '-c'
   - |
     set -x && \
+    # Set to use ssh
+    git remote set-url origin git@github.com:khhini/riset-devsecops-sample-app-env.git
     # Configure Git to create commits with Cloud Build's service account
     git config user.email $(gcloud auth list --filter=status:ACTIVE --format='value(account)') && \
     # Switch to the production branch and copy the deployment.yaml file from the candidate branch
@@ -38,7 +40,6 @@ steps:
     git commit -m "Manifest from commit $COMMIT_SHA
     $(git log --format=%B -n 1 $COMMIT_SHA)" && \
     # Push the changes back to Cloud Source Repository
-    git remote -v
     git push origin production
   volumes:
   - name: 'ssh'
