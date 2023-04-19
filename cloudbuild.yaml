@@ -36,6 +36,7 @@ steps:
     # Switch to the production branch and copy the deployment.yaml file from the candidate branch
     git fetch origin production && git checkout production && \
     git checkout $COMMIT_SHA deployment.yaml && \
+    sed -i "s#staging#production#g" deployment.yaml
     # Commit the deployment.yaml file with a descriptive commit message
     git commit -m "Manifest from commit $COMMIT_SHA
     $(git log --format=%B -n 1 $COMMIT_SHA)" && \
