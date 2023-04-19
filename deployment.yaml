@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: go-sample-app-dpl
-  namespace: production
+  namespace: staging
 spec:
   selector:
     matchLabels:
       app: sample-app
-      env: production
+      env: staging
   replicas: 1
   template:
     metadata:
       labels:
         app: sample-app
-        env: production
+        env: staging
     spec:
       containers:
       - name: go-sample-app
