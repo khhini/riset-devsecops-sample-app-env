@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: go-sample-app
-        image: asia-southeast2-docker.pkg.dev/dev-devsecops-prj/khhini-repository/go-sample-app:22cbfdc
+        image: asia-southeast2-docker.pkg.dev/dev-devsecops-prj/khhini-repository/go-sample-app:e677a80
         ports:
         - containerPort: 8080
