@@ -1,0 +1,25 @@
+resources:
+- ../../base
+
+namespace: production
+patches:
+- target:
+    kind: Deployment
+    name: go-sample-app-dpl
+  patch: |
+    - op: replace
+      path: /spec/selector/matchLabels/env
+      value: production
+    - op: replace
+      path: /spec/template/metadata/labels/env
+      value: production
+- target:
+    kind: Service
+    name: go-sample-app-svc
+  patch: |
+    - op: replace
+      path: /spec/selector/env
+      value: production
+images:
+- name: asia-southeast2-docker.pkg.dev/dev-devsecops-prj/khhini-repository/go-sample-app
+  newTag: "1.0"
