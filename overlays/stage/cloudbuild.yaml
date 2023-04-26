@@ -33,7 +33,7 @@ steps:
     git remote set-url origin git@github.com:khhini/riset-devsecops-sample-app-env.git
     # Configure Git to create commits with Cloud Build's service account
     git config user.email $(gcloud auth list --filter=status:ACTIVE --format='value(account)')
-    git fetch origin main && git checkout main
+    git fetch origin kustomize && git checkout kustomize
     # update production kustomization manifest
     sed -i "s#newTag:.*#$(echo $(grep newTag overlays/stage/kustomization.yaml))#g" overlays/prod/kustomization.yaml
     git add overlays/prod/kustomization.yaml
@@ -41,7 +41,7 @@ steps:
     git commit -m "Manifest from commit $COMMIT_SHA
     $(git log --format=%B -n 1 $COMMIT_SHA)"
     # Push the changes back to Cloud Source Repository
-    git push origin main
+    git push origin kustomize
   volumes:
   - name: 'ssh'
     path: /root/.ssh
