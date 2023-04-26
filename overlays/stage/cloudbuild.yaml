@@ -6,7 +6,8 @@ steps:
   args:
   - '-c'
   - |
-    kubectl kustomize overlays/stage | kubectl apply -f -
+    kubectl kustomize overlays/stage -o deployment.yaml
+    kubectl apply -f deployment.yaml
   env:
   - 'CLOUDSDK_COMPUTE_REGION=asia-southeast2'
   - 'CLOUDSDK_CONTAINER_CLUSTER=khhini-cluster'
