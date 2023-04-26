@@ -33,7 +33,7 @@ steps:
     git remote set-url origin git@github.com:khhini/riset-devsecops-sample-app-env.git
     # Configure Git to create commits with Cloud Build's service account
     git config user.email $(gcloud auth list --filter=status:ACTIVE --format='value(account)')
-    git checkout main
+    git fetch origin main && git checkout main
     # update production kustomization manifest
     sed -i "s#newTag:.*#$(echo $(grep newTag overlays/stage/kustomization.yaml))#g" overlays/prod/kustomization.yaml
     git add overlays/prod/kustomization.yaml
