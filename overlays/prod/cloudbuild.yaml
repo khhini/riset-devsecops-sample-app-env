@@ -5,7 +5,12 @@ steps:
   args:
   - '-c'
   - |
+    gcloud container clusters get-credentials ${_CLOUDSDK_CONTAINER_CLUSTER} --zone ${_CLOUDSDK_COMPUTE_REGION}
     kubectl kustomize overlays/prod | kubectl apply -f -
   env:
   - 'CLOUDSDK_COMPUTE_REGION=asia-southeast2'
   - 'CLOUDSDK_CONTAINER_CLUSTER=khhini-cluster'
+
+substitutions:
+  _CLOUDSDK_COMPUTE_REGION: asia-southeast2
+  _CLOUDSDK_CONTAINER_CLUSTER: khhini-cluster
