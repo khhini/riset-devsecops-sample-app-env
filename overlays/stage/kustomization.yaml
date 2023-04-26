@@ -22,4 +22,4 @@ patches:
       value: staging
 images:
 - name: asia-southeast2-docker.pkg.dev/dev-devsecops-prj/khhini-repository/go-sample-app
-  newTag: "06dd3ff"
+  newTag: "1.0"
