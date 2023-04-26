@@ -22,4 +22,4 @@ patches:
       value: production
 images:
 - name: asia-southeast2-docker.pkg.dev/dev-devsecops-prj/khhini-repository/go-sample-app
-  newTag: "1.0"
+  newTag: "06dd3ff"
