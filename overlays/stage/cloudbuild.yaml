@@ -2,14 +2,11 @@ steps:
 
 - name: 'gcr.io/cloud-builders/kubectl'
   id: Deploy
+  entrypoint: /bin/sh
   args:
-  - 'kustomize'
-  - 'overlays/stage'
-  - '|'
-  - 'kubectl'
-  - 'apply'
-  - '-f'
-  - '-'
+  - '-c'
+  - |
+    kubectl kustomize overlays/stage | kubectl apply -f -
   env:
   - 'CLOUDSDK_COMPUTE_REGION=asia-southeast2'
   - 'CLOUDSDK_CONTAINER_CLUSTER=khhini-cluster'
