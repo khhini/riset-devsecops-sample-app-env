@@ -40,7 +40,7 @@ steps:
     git commit -m "Manifest from commit $COMMIT_SHA
     $(git log --format=%B -n 1 $COMMIT_SHA)" && \
     # Push the changes back to Cloud Source Repository
-    git push origin production
+    git push origin main
   volumes:
   - name: 'ssh'
     path: /root/.ssh
