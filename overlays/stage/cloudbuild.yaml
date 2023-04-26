@@ -50,6 +50,6 @@ availableSecrets:
   - versionName: projects/1078293032607/secrets/github_ssh_keys/versions/1
     env: 'SSH_KEY'
 
-subtituions:
+substitutions:
   _CLOUDSDK_COMPUTE_REGION: asia-southeast2
   _CLOUDSDK_CONTAINER_CLUSTER: khhini-cluster
