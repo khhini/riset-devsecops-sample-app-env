@@ -7,7 +7,7 @@ steps:
   - '-c'
   - |
     gcloud container clusters get-credentials ${_CLOUDSDK_CONTAINER_CLUSTER} --zone ${_CLOUDSDK_COMPUTE_REGION}
-    kubectl kustomize overlays/stage | kubectl apply -f -
+    kubectl kustomize overlays/prod | kubectl apply -f -
 
 substitutions:
   _CLOUDSDK_COMPUTE_REGION: asia-southeast2
