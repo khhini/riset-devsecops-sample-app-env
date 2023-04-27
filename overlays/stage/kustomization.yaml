@@ -1,25 +1,26 @@
 resources:
 - ../../base
-
 namespace: staging
 patches:
 - target:
     kind: Deployment
     name: go-sample-app-dpl
   patch: |
-    - op: replace
-      path: /spec/selector/matchLabels/env
-      value: staging
-    - op: replace
-      path: /spec/template/metadata/labels/env
-      value: staging
-- target:
-    kind: Service
-    name: go-sample-app-svc
-  patch: |
-    - op: replace
-      path: /spec/selector/env
-      value: staging
+    - op: add
+      path: /spec/template/spec/containers/0/env
+      value: 
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: my-secret-map
+              key: DB_USERNAME
+commonLabels:
+  app: sample-app
+  env: staging
 images:
 - name: asia-southeast2-docker.pkg.dev/dev-devsecops-prj/khhini-repository/go-sample-app
   newTag: "d1bb129"
+secretGenerator:
+- name: my-secret-map
+  literals:
+  - DB_USERNAME=REPLACE_DB_USERNAME
