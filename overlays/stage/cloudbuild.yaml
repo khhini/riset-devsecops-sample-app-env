@@ -2,13 +2,13 @@ steps:
 
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Deploy
-  secretEnv: ['APP_ENV']
+  secretEnv: ['DB_USERNAME']
   entrypoint: '/bin/bash'
   args:
   - '-c'
   - |
     gcloud container clusters get-credentials ${_CLOUDSDK_CONTAINER_CLUSTER} --zone ${_CLOUDSDK_COMPUTE_REGION}
-    echo $$APP_ENV >> overlays/stage/.env
+    sed -i "s#REPLACE_DB_USERNAME#$$DB_USERNAME#g" overlays/stage/kustomization.yaml
     kubectl kustomize overlays/stage | kubectl apply -f -
   
 - name: 'gcr.io/cloud-builders/git'
