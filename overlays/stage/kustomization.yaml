@@ -19,7 +19,7 @@ commonLabels:
   env: staging
 images:
 - name: asia-southeast2-docker.pkg.dev/dev-devsecops-prj/khhini-repository/go-sample-app
-  newTag: "d1bb129"
+  newTag: "c2ad563"
 secretGenerator:
 - name: my-secret-map
   literals:
