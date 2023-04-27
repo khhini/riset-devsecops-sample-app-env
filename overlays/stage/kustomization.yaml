@@ -22,5 +22,5 @@ images:
   newTag: "c2ad563"
 secretGenerator:
 - name: my-secret-map
-  literals:
-  - DB_USERNAME=REPLACE_DB_USERNAME
+  files:
+  - .env
