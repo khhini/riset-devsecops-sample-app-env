@@ -50,9 +50,9 @@ steps:
 
 availableSecrets:
   secretManager:
-  - versionName: projects/1078293032607/secrets/github_ssh_keys/versions/1
+  - versionName: projects/1078293032607/secrets/github_ssh_keys/versions/latest
     env: 'SSH_KEY'
-  - versionName: projects/1078293032607/secrets/sample-app-stage-db-username/versions/1
+  - versionName: projects/1078293032607/secrets/sample-app-stage-db-username/versions/latest
     env: 'DB_USERNAME'
 
 substitutions:
