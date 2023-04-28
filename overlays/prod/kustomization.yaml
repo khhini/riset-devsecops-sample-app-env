@@ -32,4 +32,4 @@ images:
 secretGenerator:
 - name: my-secret-map
   literals:
-  - DB_PASSWORD_SECRET_MANAGER_REF=projects/1078293032607/secrets/sample-app-stage-db-username/versions/latest
+  - DB_PASSWORD_SECRET_MANAGER_REF=projects/1078293032607/secrets/sample-app-prod-db-username/versions/latest
