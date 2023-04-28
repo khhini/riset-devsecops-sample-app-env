@@ -2,19 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: go-sample-app-dpl
-  namespace: development
+  namespace: kustomize
 spec:
   selector:
     matchLabels:
       app: sample-app
-      env: development
+      env: kustomize
   replicas: 1
   template:
     metadata:
       labels:
         app: sample-app
-        env: development
+        env: kustomize
     spec:
+      serviceAccountName: sample-app-sa
       containers:
       - name: go-sample-app
         image: asia-southeast2-docker.pkg.dev/dev-devsecops-prj/khhini-repository/go-sample-app:e677a80
