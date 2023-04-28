@@ -5,6 +5,31 @@ namespace: production
 commonLabels:
   app: sample-app
   env: production
+patches:
+- target:
+    kind: Deployment
+    name: go-sample-app-dpl
+  patch: |
+    - op: add
+      path: /spec/template/spec/containers/0/env
+      value: 
+        - name: DB_PASSWORD_SECRET_MANAGER_REF
+          valueFrom:
+            secretKeyRef:
+              name: my-secret-map
+              key: DB_PASSWORD_SECRET_MANAGER_REF
+- target:
+    kind: ServiceAccount
+    name: sample-app-sa
+  patch: |
+    - op: add
+      path: /metadata/annotations
+      value:
+        iam.gke.io/gcp-service-account: sample-app-sa@dev-devsecops-prj.iam.gserviceaccount.com
 images:
 - name: asia-southeast2-docker.pkg.dev/dev-devsecops-prj/khhini-repository/go-sample-app
   newTag: "c2ad563"
+secretGenerator:
+- name: my-secret-map
+  literals:
+  - DB_PASSWORD_SECRET_MANAGER_REF=projects/1078293032607/secrets/sample-app-stage-db-username/versions/latest
