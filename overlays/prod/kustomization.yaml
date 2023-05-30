@@ -28,7 +28,7 @@ patches:
         iam.gke.io/gcp-service-account: sample-app-sa@dev-devsecops-prj.iam.gserviceaccount.com
 images:
 - name: asia-southeast2-docker.pkg.dev/dev-devsecops-prj/khhini-repository/go-sample-app
-  newTag: "a55c207"
+  newTag: "b5daeec"
 secretGenerator:
 - name: my-secret-map
   literals:
