@@ -16,7 +16,5 @@ substitutions:
   _APP_VERSION: v1.1
   _APP_ROLE: backend
   _APP_IMAGE: asia-southeast2-docker.pkg.dev/dev-devsecops-prj/khhini-repository/go-sample-app:386248c
-  _APP_GIT_COMMIT: "Relase v1.1 from image asia-southeast2-docker.pkg.dev/dev-devsecops-prj/khhini-repository/go-sample-app:386248c
-      Built from commit https://github.com/khhini/riset-devsecops-sample-app/commit/b5daeec5b71ed80e88939dbb3c94afa748485ff8
-      Author: $(git log --format='%an <%ae>' -n 1 HEAD)"
+  _APP_GIT_COMMIT: "https://github.com/khhini/riset-devsecops-sample-app/commit/b5daeec5b71ed80e88939dbb3c94afa748485ff8"
   _APP_STAGING_URL: staging-data.pencerahnusantara.org
