@@ -12,3 +12,8 @@ steps:
 substitutions:
   _CLOUDSDK_COMPUTE_REGION: asia-southeast2
   _CLOUDSDK_CONTAINER_CLUSTER: khhini-cluster
+  _APP_NAME: sample-app
+  _APP_ROLE: backend
+  _APP_IMAGE: asia-southeast2-docker.pkg.dev/dev-devsecops-prj/khhini-repository/go-sample-app:386248c
+  _APP_GIT_COMMIT: https://github.com/khhini/riset-devsecops-sample-app/commit/b5daeec5b71ed80e88939dbb3c94afa748485ff8
+  
